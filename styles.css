@@ -8,20 +8,106 @@ body {
     font-family: 'Georgia', serif;
     line-height: 1.6;
     color: #333;
+}
+
+/* Home Page Styles */
+.home-page {
+    overflow: hidden;
+}
+
+.fullscreen-background {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('background-bw.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.minimal-header {
+    padding: 40px;
+    z-index: 10;
+}
+
+.minimal-header h1 {
+    font-size: 3em;
+    font-weight: 300;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    letter-spacing: 2px;
+}
+
+.diagonal-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    font-size: 2.5em;
+    font-weight: 300;
+    padding: 30px 60px;
+    transition: all 0.3s ease;
+    position: relative;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    letter-spacing: 3px;
+    background: rgba(0,0,0,0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-link-1 {
+    transform: rotate(-3deg) translateX(-100px);
+}
+
+.nav-link-2 {
+    transform: rotate(2deg) translateX(80px);
+}
+
+.nav-link-3 {
+    transform: rotate(-2deg) translateX(-60px);
+}
+
+.nav-link-4 {
+    transform: rotate(3deg) translateX(100px);
+}
+
+.nav-link:hover {
+    background: rgba(255,255,255,0.3);
+    transform: rotate(0deg) translateX(0) scale(1.05);
+    text-shadow: 3px 3px 12px rgba(0,0,0,0.9);
+}
+
+/* Project Page Styles */
+body:not(.home-page) {
     background-color: #fafafa;
 }
 
-header {
+header:not(.minimal-header) {
     text-align: center;
     padding: 60px 20px 40px;
     background-color: #fff;
     border-bottom: 1px solid #eee;
 }
 
-header h1 {
+header:not(.minimal-header) h1 {
     font-size: 2.5em;
     font-weight: 300;
     margin-bottom: 10px;
+    color: #333;
 }
 
 .tagline {
@@ -30,60 +116,6 @@ header h1 {
     font-style: italic;
 }
 
-.home-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-.intro {
-    text-align: center;
-    margin-bottom: 60px;
-    font-size: 1.2em;
-    color: #555;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-bottom: 60px;
-}
-
-.project-card {
-    text-decoration: none;
-    color: inherit;
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-}
-
-.project-image {
-    width: 100%;
-    height: 250px;
-    background-size: cover;
-    background-position: center;
-}
-
-.project-card h2 {
-    padding: 20px 20px 10px;
-    font-size: 1.5em;
-    font-weight: 400;
-}
-
-.project-card p {
-    padding: 0 20px 20px;
-    color: #666;
-}
-
-/* Project Page Styles */
 .project-container {
     max-width: 900px;
     margin: 0 auto;
@@ -93,13 +125,14 @@ header h1 {
 .back-link {
     display: inline-block;
     margin-bottom: 30px;
-    color: #667eea;
+    color: #333;
     text-decoration: none;
     font-size: 1em;
+    transition: color 0.3s ease;
 }
 
 .back-link:hover {
-    text-decoration: underline;
+    color: #666;
 }
 
 .project-header {
@@ -155,15 +188,24 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-    header h1 {
+    .minimal-header h1 {
         font-size: 2em;
+    }
+    
+    .nav-link {
+        font-size: 1.5em;
+        padding: 20px 40px;
+    }
+    
+    .nav-link-1,
+    .nav-link-2,
+    .nav-link-3,
+    .nav-link-4 {
+        transform: rotate(0deg) translateX(0);
+        margin: 10px 0;
     }
     
     .project-header h1 {
         font-size: 2em;
-    }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
     }
 }
