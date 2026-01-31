@@ -18,26 +18,36 @@ body {
 .fullscreen-background {
     width: 100vw;
     height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.fullscreen-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: url('background-bw.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
-    display: flex;
-    flex-direction: column;
     transition: filter 0.4s ease;
+    z-index: 1;
 }
 
-/* Blur background when any link is hovered */
-.diagonal-nav:has(.nav-link:hover) ~ .fullscreen-background::after,
-.fullscreen-background:has(.nav-link:hover) {
-    filter: blur(8px);
+/* Apply subtle blur to background when hovering */
+.fullscreen-background:has(.nav-link:hover)::before {
+    filter: blur(3px);
 }
 
 .minimal-header {
     padding: 40px;
     z-index: 10;
     text-align: right;
+    position: relative;
 }
 
 .minimal-header h1 {
@@ -98,7 +108,7 @@ body {
     text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
 }
 
-/* Horizontal color bar on hover - NOT BLURRED */
+/* Horizontal color bar on hover - stays sharp */
 .nav-link::before {
     content: '';
     position: absolute;
@@ -112,9 +122,8 @@ body {
     background-attachment: fixed;
     opacity: 0;
     transition: opacity 0.4s ease;
-    z-index: -1;
+    z-index: 5;
     pointer-events: none;
-    filter: none !important;
 }
 
 .nav-link:hover::before {
@@ -123,12 +132,7 @@ body {
 
 .nav-link:hover .link-text {
     text-shadow: 3px 3px 15px rgba(0,0,0,0.9);
-    filter: none;
-}
-
-/* Prevent blur on hovered link */
-.nav-link:hover {
-    filter: none;
+    z-index: 15;
 }
 
 /* Project Page Styles */
