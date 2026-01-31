@@ -44,10 +44,10 @@ body {
 
 .diagonal-nav {
     position: absolute;
-    top: 18%;
+    top: 20%;
     left: 8%;
     width: 84%;
-    height: 68%;
+    height: 65%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -68,28 +68,28 @@ body {
     width: fit-content;
 }
 
-/* More organic, less uniform placement */
+/* More organic, less uniform placement - adjusted to fit all 4 */
 .nav-link:nth-child(1) {
     align-self: flex-start;
     margin-left: 5%;
-    margin-bottom: 8%;
+    margin-bottom: 6%;
 }
 
 .nav-link:nth-child(2) {
     align-self: flex-start;
-    margin-left: 25%;
-    margin-bottom: 12%;
+    margin-left: 28%;
+    margin-bottom: 7%;
 }
 
 .nav-link:nth-child(3) {
     align-self: flex-start;
-    margin-left: 12%;
-    margin-bottom: 9%;
+    margin-left: 15%;
+    margin-bottom: 6%;
 }
 
 .nav-link:nth-child(4) {
     align-self: flex-start;
-    margin-left: 38%;
+    margin-left: 42%;
 }
 
 .link-text {
